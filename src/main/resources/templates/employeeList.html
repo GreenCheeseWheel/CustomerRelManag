@@ -1,0 +1,78 @@
+<style>
+	
+	a {
+		text-decoration: none;
+		color: snow;
+		font-weight: bolder;
+		width: 5px;
+		height: 3px;
+		padding: 1px;
+		background-color: #09c332;
+	}
+	
+	#btn-add{
+		margin-left: 14%;
+	}
+	
+	table {
+		border-collapse: collapse;
+		border-bottom: 1px solid gray;
+		font-family: sans-serif;
+		width: 72%;
+		margin: auto;
+		text-align: center;
+	}
+	
+	th {
+		border-bottom: 1px solid gray;
+		background: none repeat scroll 0 0 #09c332;
+		padding: 10px;
+		color: #FFFFFF;
+	
+	}
+	
+	tr {
+		border-bottom: 1px solid gray;
+	}
+
+</style>
+
+<!--  -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Customer List App</title>
+	</head>
+	
+	<body>
+		
+		<a th:href="@{/add-form}" id="btn-add">Add customer</a>
+	
+		<table>
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>E-Mail</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+						
+				<tr th:each="customer : ${customers}">
+					<td th:text="${customer.firstName}"> </td>
+					<td th:text="${customer.lastName}"> </td>
+					<td th:text="${customer.email}"> </td>
+					<td> <a th:href="@{/update-form/{id}(id = ${customer.id})}">Update</a>  <a th:href="@{/delete/{id}(id = ${customer.id})}">Delete</a> </td>
+				</tr>
+				
+			</tbody>
+		</table>
+	
+		
+	
+	</body>
+	
+</html>

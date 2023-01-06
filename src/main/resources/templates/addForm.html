@@ -1,0 +1,43 @@
+<style>
+	body {
+		text-align: left;
+	}
+
+	form {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	input {
+		width: 23vw;
+		height: 1.5rem;
+		margin: 5px;
+	}
+	
+	a {
+		text-decoration: none;
+		color: black;
+	}	
+</style>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	</head>
+
+	<body>
+		<form th:action="@{/update}" th:object="${customer}" method="post">
+			<input type="hidden" th:field="*{id}"/>
+			<input type="text" th:field="*{firstName}"  placeholder="First Name"/>
+			<input type="text" th:field="*{lastName}"  placeholder="Last Name"/>
+			<input type="text" th:field="*{email}"  placeholder="E-Mail"/>
+			<input type="submit" value="Submit"/>
+		</form>
+		
+		<a th:href="@{/list}">Go Back</a>
+		
+	</body>
+
+</html>
